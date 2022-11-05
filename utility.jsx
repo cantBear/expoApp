@@ -6,5 +6,6 @@ export const tokenAxios = axios.create({
         "Content-Type": "multipart/form-data",
     }
 });
+tokenAxios.defaults.withCredentials = true
 tokenAxios.defaults.xsrfCookieName = 'csrftoken'
 tokenAxios.defaults.xsrfHeaderName = 'X-CSRFToken'

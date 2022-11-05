@@ -7,23 +7,21 @@ import { StatusBar } from 'expo-status-bar';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
   },
 });
 
 export default function App() {
   const Stack = createNativeStackNavigator();
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='login'>
+    <NavigationContainer >
+      <Stack.Navigator initialRouteName='login' >
         <Stack.Screen name="login" component={LoginPage} />
 
         <Stack.Screen name="signup" component={SignUpPage} />
       </Stack.Navigator>
-      <StatusBar style="auto" />
+      {/* <StatusBar style="auto" /> */}
 
     </NavigationContainer>
 

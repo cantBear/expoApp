@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="sendLogin">로그인보내기</button>
+
+    <script>
+        import axios from "axios";
+        const tokenAxios = axios.create({
+            baseURL: process.env.REACT_APP_BASE_URL,
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "multipart/form-data",
+            }
+        });
+        tokenAxios.defaults.xsrfCookieName = 'csrftoken'
+        tokenAxios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+        const sendLogin = async () => {
+            const formdata = new FormData();
+            formdata.append("email", "ㅁㅁㅁ");
+            formdata.append("password", "ㅠㅠㅠ");
+            try {
+                await tokenAxios.post("https://motchamji3.herokuapp.com/login/", formdata)
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
